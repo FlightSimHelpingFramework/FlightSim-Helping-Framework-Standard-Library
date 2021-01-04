@@ -6,6 +6,12 @@
         <Authors>Flight Sim Standard Library</Authors>
         <PackageLicenseUrl></PackageLicenseUrl>
         <PackageVersion>0.0.1</PackageVersion>
+        <Title>Flight Sim Standard Library</Title>
+        <Description>Flight Sim Standard Library</Description>
+        <Copyright>2021</Copyright>
+        <PackageProjectUrl>https://github.com/FlightSimHelpingFramework/FlightSim-Helping-Framework-Standard-Library</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/FlightSimHelpingFramework/FlightSim-Helping-Framework-Standard-Library.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>
