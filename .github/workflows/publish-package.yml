@@ -1,0 +1,35 @@
+name: .NET build and publish package
+
+on:
+  push:
+    branches: [ main]
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.100
+        source-url: https://nuget.pkg.github.com/FlightSimHelpingFramework/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: Install dependencies
+      working-directory: FSHF Standard library
+      run: dotnet restore
+    - name: Build
+      working-directory: FSHF Standard library
+      run: dotnet build --configuration Release --no-restore
+    - name: Create the package
+      working-directory: FSHF Standard library
+      run: dotnet pack --configuration Release
+    - name: Publish the package to GPR
+      working-directory: FSHF Standard library
+      run: dotnet nuget push /bin/Release/*.nupkg
