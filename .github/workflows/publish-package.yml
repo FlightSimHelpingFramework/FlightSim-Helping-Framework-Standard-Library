@@ -18,9 +18,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.100
-        source-url: https://nuget.pkg.github.com/FlightSimHelpingFramework/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Install dependencies
       working-directory: FSHF Standard library
       run: dotnet restore
@@ -30,6 +27,6 @@ jobs:
     - name: Create the package
       working-directory: FSHF Standard library
       run: dotnet pack --configuration Release
-    - name: Publish the package to GPR
+    - name: Publish the package to nuget
       working-directory: FSHF Standard library
-      run: dotnet nuget push FSHFStandardLibrary.Core/bin/Release/*.nupkg
+      run: dotnet nuget push FSHFStandardLibrary.Core/bin/Release/*.nupkg --api-key ${{secrets.NUGET}} --source https://api.nuget.org/v3/index.json --skip-duplicate
