@@ -26,7 +26,7 @@ namespace FSHFStandardLibrary.Core.Checking.ArgumentChecking
         /// <returns>Is <paramref name="icaoCode" /> a valid ICAO airport code string.</returns>
         public static bool IsIcaoCodeStringValid([CanBeNull] string icaoCode)
         {
-            Regex icaoRegex = new Regex(@"^[A-Z]+$");
+            Regex icaoRegex = new(@"^[A-Z]+$");
 
             return icaoCode != null && StringArgumentChecking.IsStringValid(icaoCode) && icaoCode.Length == 4 &&
                    icaoRegex.IsMatch(icaoCode) && icaoCode.ToUpper(CultureInfo.InvariantCulture) == icaoCode;

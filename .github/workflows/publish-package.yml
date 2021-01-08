@@ -2,7 +2,7 @@ name: .NET build and publish package
 
 on:
   push:
-    branches: [ main]
+    branches: [ release ]
 
 jobs:
   build:

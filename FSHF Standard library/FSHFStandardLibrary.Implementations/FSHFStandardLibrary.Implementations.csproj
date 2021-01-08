@@ -2,12 +2,9 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Authors>FlightSim Helping Framework</Authors>
-        <PackageLicenseUrl></PackageLicenseUrl>
         <PackageVersion>0.0.2</PackageVersion>
-        <Title>FlightSim Standard Library</Title>
-        <Description>Flight Sim Standard Library</Description>
+        <Title>FlightSim Standard Library Implementation</Title>
+        <Authors>FlightSim Helping Framework</Authors>
         <Copyright>2021</Copyright>
         <PackageProjectUrl>https://github.com/FlightSimHelpingFramework/FlightSim-Helping-Framework-Standard-Library</PackageProjectUrl>
         <RepositoryUrl>https://github.com/FlightSimHelpingFramework/FlightSim-Helping-Framework-Standard-Library.git</RepositoryUrl>
@@ -15,8 +12,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
-      <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+      <ProjectReference Include="..\FSHFStandardLibrary.Core\FSHFStandardLibrary.Core.csproj" />
     </ItemGroup>
 
 </Project>
