@@ -25,6 +25,7 @@ jobs:
       run: dotnet restore
     - name: Build
       working-directory: FSHF Standard library
+      
       run: dotnet build --configuration Release --no-restore
   
     - name: Unit tests
@@ -34,4 +35,19 @@ jobs:
     - name: Integration tests with Internet data access tests
       working-directory: FSHF Standard library
       run: dotnet test --filter Category=IntegrationWithInternetDataAccess --configuration Release --no-restore --verbosity normal --collect:"XPlat Code Coverage" --results-directory:"IntegrationWithInternetDataAccessTestResults"  -- RunConfiguration.DisableAppDomain=true
+    
+    - name: Codecov for unit tests
+      uses: codecov/codecov-action@v1.0.13
+      with:
+        file: UnitTestResults/**/*.xml
+        env_vars: ${{ matrix.os }}
+        name: Code Coverage for unit tests on ${{ matrix.os }}
+        flags: UnitTests
 
+    - name: Codecov for integration tests with Internet data access
+      uses: codecov/codecov-action@v1.0.13
+      with:
+        file: IntegrationWithInternetDataAccessTestResults/**/*.xml
+        env_vars: ${{ matrix.os }}
+        name: Code Coverage for integration tests with Internet data access on ${{ matrix.os }}
+        flags: IntegrationTestsWithInternetDataAccess
