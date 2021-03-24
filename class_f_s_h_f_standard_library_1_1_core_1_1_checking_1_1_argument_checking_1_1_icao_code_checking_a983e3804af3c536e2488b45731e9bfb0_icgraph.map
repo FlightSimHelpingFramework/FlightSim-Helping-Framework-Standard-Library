@@ -1,0 +1,5 @@
+<map id="ThrowExceptionIfIcaoCodeIsInvalid" name="ThrowExceptionIfIcaoCodeIsInvalid">
+<area shape="rect" id="node1" title="Throws InvalidIcaoCodeException if icaoCode &#160;does not satisfy ICAO airport code requirements." alt="" coords="235,39,412,80"/>
+<area shape="rect" id="node2" href="$class_f_s_h_f_standard_library_1_1_core_1_1_codes_1_1_icao_code.html#a30fb0259b4890d602270badd9129eb1c" title="Constructor from string." alt="" coords="5,5,187,47"/>
+<area shape="rect" id="node3" href="$class_f_s_h_f_standard_library_1_1_core_1_1_checking_1_1_argument_checking_1_1_icao_code_checking.html#a4118139246b56acb81e810c06930e318" title="Throws InvalidIcaoCodeException, if at least one element of icaoCodes &#160;does not satisfy ICAO airport ..." alt="" coords="9,71,183,112"/>
+</map>

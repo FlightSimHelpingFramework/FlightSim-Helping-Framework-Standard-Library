@@ -1,0 +1,5 @@
+<map id="DownloadResultWithIcaoCode&lt; T &gt;" name="DownloadResultWithIcaoCode&lt; T &gt;">
+<area shape="rect" id="node1" title="Class representing the result of downloading data of type T ." alt="" coords="48,80,275,107"/>
+<area shape="rect" id="node2" href="$class_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general_1_1_download_result.html" title="Class representing the result of downloading data of type T ." alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node3" href="$interface_f_s_h_f_standard_library_1_1_core_1_1_codes_1_1_i_icao_code_container.html" title="Interface of a class, that contains IcaoCode for representing airport ICAO code." alt="" coords="176,5,312,32"/>
+</map>

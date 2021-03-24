@@ -1,0 +1,4 @@
+var interface_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general_1_1_i_downloader =
+[
+    [ "DownloadForManyRequestsAsync", "interface_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general_1_1_i_downloader.html#a5203b82eb8167c8264764472cccf7394", null ]
+];

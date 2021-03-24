@@ -1,0 +1,5 @@
+<map id="UrlDownloadRequestWithIcaoCode" name="UrlDownloadRequestWithIcaoCode">
+<area shape="rect" id="node1" title="Request for downloading data by URL. Request contains airport ICAO code IcaoCode." alt="" coords="46,80,271,107"/>
+<area shape="rect" id="node2" href="$class_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general_1_1_url_download_request.html" title="Request for downloading data by URL." alt="" coords="5,5,149,32"/>
+<area shape="rect" id="node3" href="$interface_f_s_h_f_standard_library_1_1_core_1_1_codes_1_1_i_icao_code_container.html" title="Interface of a class, that contains IcaoCode for representing airport ICAO code." alt="" coords="173,5,309,32"/>
+</map>

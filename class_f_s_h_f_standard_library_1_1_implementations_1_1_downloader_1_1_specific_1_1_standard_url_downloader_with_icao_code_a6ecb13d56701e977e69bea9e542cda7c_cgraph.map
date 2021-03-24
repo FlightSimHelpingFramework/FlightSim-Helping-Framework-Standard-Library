@@ -1,0 +1,5 @@
+<map id="DownloadForManyRequestsAsync" name="DownloadForManyRequestsAsync">
+<area shape="rect" id="node1" title="Performs asynchronous downloading by requests at downloadRequests ." alt="" coords="5,20,225,47"/>
+<area shape="rect" id="node2" href="$class_f_s_h_f_standard_library_1_1_core_1_1_checking_1_1_argument_checking_1_1_null_checking.html#a268755b9b7aec45de9bb7f81ffa19637" title="Throws ArgumentNullException if collection &#160;is null or contains null." alt="" coords="273,5,564,61"/>
+<area shape="rect" id="node3" href="$class_f_s_h_f_standard_library_1_1_core_1_1_checking_1_1_argument_checking_1_1_null_checking.html#ab7b1938b6a2baac848dae2a322fd5ca1" title="Throws ArgumentNullException if argument &#160;is null." alt="" coords="612,5,827,61"/>
+</map>

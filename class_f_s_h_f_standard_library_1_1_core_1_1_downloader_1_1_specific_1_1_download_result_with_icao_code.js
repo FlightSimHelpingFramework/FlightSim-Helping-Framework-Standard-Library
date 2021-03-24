@@ -1,0 +1,5 @@
+var class_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_specific_1_1_download_result_with_icao_code =
+[
+    [ "DownloadResultWithIcaoCode", "class_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_specific_1_1_download_result_with_icao_code.html#ad5b7c8c9b5eae6dd5261489fd503d181", null ],
+    [ "AirportIcaoCode", "class_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_specific_1_1_download_result_with_icao_code.html#a8a5210df8cf00c1ccd23e8d28c9b3b97", null ]
+];
