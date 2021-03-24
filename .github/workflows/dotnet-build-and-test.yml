@@ -37,6 +37,7 @@ jobs:
       run: dotnet test --filter Category=IntegrationWithInternetDataAccess --configuration Release --no-restore --verbosity normal --collect:"XPlat Code Coverage" --results-directory:"IntegrationWithInternetDataAccessTestResults"  -- RunConfiguration.DisableAppDomain=true
     
     - name: Codecov for unit tests
+      if: ${{ matrix.os == 'ubuntu-latest' }}
       uses: codecov/codecov-action@v1.3.1
       with:
         file: UnitTestResults/**/*.xml
@@ -45,6 +46,7 @@ jobs:
         flags: UnitTests
 
     - name: Codecov for integration tests with Internet data access
+      if: ${{ matrix.os == 'ubuntu-latest' }}
       uses: codecov/codecov-action@v1.3.1
       with:
         file: IntegrationWithInternetDataAccessTestResults/**/*.xml
