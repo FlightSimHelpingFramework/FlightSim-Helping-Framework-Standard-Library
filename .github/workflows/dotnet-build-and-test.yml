@@ -44,6 +44,7 @@ jobs:
         env_vars: ${{ matrix.os }}
         name: Code Coverage for unit tests on ${{ matrix.os }}
         flags: UnitTests
+        verbose: true
 
     - name: Codecov for integration tests with Internet data access
       if: ${{ matrix.os == 'ubuntu-latest' }}
@@ -53,3 +54,4 @@ jobs:
         env_vars: ${{ matrix.os }}
         name: Code Coverage for integration tests with Internet data access on ${{ matrix.os }}
         flags: IntegrationTestsWithInternetDataAccess
+        verbose: true
