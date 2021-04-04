@@ -5,13 +5,17 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>FlightSim Helping Framework</Authors>
         <PackageLicenseUrl></PackageLicenseUrl>
-        <PackageVersion>0.0.2</PackageVersion>
+        <PackageVersion>0.0.3</PackageVersion>
         <Title>FlightSim Standard Library</Title>
         <Description>Flight Sim Standard Library</Description>
         <Copyright>2021</Copyright>
         <PackageProjectUrl>https://github.com/FlightSimHelpingFramework/FlightSim-Helping-Framework-Standard-Library</PackageProjectUrl>
         <RepositoryUrl>https://github.com/FlightSimHelpingFramework/FlightSim-Helping-Framework-Standard-Library.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\FSHFStandardLibrary.Core.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
