@@ -2,7 +2,7 @@ name: Doxygen documentation for master branch
 
 on:
   push:
-    branches: [ release ]
+    branches: [ release-package ]
 
 jobs:
   build:
