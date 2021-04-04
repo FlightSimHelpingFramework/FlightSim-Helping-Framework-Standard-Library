@@ -10,6 +10,7 @@
         <RepositoryUrl>https://github.com/FlightSimHelpingFramework/FlightSim-Helping-Framework-Standard-Library.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Description>Flight Sim Standard Library</Description>
     </PropertyGroup>
 
     <ItemGroup>
