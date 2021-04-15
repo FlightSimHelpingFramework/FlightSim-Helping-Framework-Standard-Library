@@ -38,7 +38,7 @@ jobs:
     
     - name: Codecov for unit tests
       if: ${{ matrix.os == 'ubuntu-latest' }}
-      uses: codecov/codecov-action@v1.3.1
+      uses: codecov/codecov-action@v1.3.2
       with:
         file: UnitTestResults/**/*.xml
         env_vars: ${{ matrix.os }}
@@ -48,7 +48,7 @@ jobs:
 
     - name: Codecov for integration tests with Internet data access
       if: ${{ matrix.os == 'ubuntu-latest' }}
-      uses: codecov/codecov-action@v1.3.1
+      uses: codecov/codecov-action@v1.3.2
       with:
         file: IntegrationWithInternetDataAccessTestResults/**/*.xml
         env_vars: ${{ matrix.os }}
