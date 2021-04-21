@@ -22,7 +22,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.General
         public void Constructor_WithValidParameters_ShouldConstruct(Uri url)
         {
             //Arrange & act
-            UrlDownloadRequest request = new(url);
+            UrlDownloadRequest request = new UrlDownloadRequest(url);
 
             //Assert
             request.Url.Should().Be(url);
@@ -32,7 +32,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.General
         public void ToString_WithValidParameters_ShouldReturnCorrectString(Uri url)
         {
             //Arrange & act
-            UrlDownloadRequest request = new(url);
+            UrlDownloadRequest request = new UrlDownloadRequest(url);
             string toStringRepresentation = request.ToString();
 
             //Assert

@@ -11,6 +11,7 @@
         <RepositoryType>git</RepositoryType>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Description>Flight Sim Standard Library</Description>
+        <LangVersion>9</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup>

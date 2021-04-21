@@ -36,7 +36,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Json
         {
             get
             {
-                List<object[]> result = new();
+                List<object[]> result = new List<object[]>();
 
                 foreach (string icaoCode in IcaoCodes.ValidStringIcaoCodesCollection)
                 {

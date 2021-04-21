@@ -34,7 +34,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void Constructor_WithValidParameters_ShouldCounstruct(string icaoCodeString)
         {
             //Arrange
-            IcaoCode icaoCode = new(icaoCodeString);
+            IcaoCode icaoCode = new IcaoCode(icaoCodeString);
 
             //Act & assert
             icaoCode.Code.Should().Be(icaoCodeString);
@@ -45,8 +45,8 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void Equals_WithEqualObjects_ShouldWorkAsExpected(string icaoCodeString)
         {
             //Arrange & act
-            IcaoCode icaoCode1 = new(icaoCodeString);
-            IcaoCode icaoCode2 = new(icaoCodeString);
+            IcaoCode icaoCode1 = new IcaoCode(icaoCodeString);
+            IcaoCode icaoCode2 = new IcaoCode(icaoCodeString);
 
             //Assert
             icaoCode1.Should().Be(icaoCode2);
@@ -57,7 +57,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void Equals_WithOneNullObject_ShouldWorkAsExpected(string icaoCodeString)
         {
             //Arrange & act
-            IcaoCode icaoCode1 = new(icaoCodeString);
+            IcaoCode icaoCode1 = new IcaoCode(icaoCodeString);
             IcaoCode icaoCode2 = null;
             bool result = icaoCode1.Equals(icaoCode2);
 
@@ -70,8 +70,8 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void GetHashCode_WithEqualObjects_ShouldWorkAsExpected(string icaoCodeString)
         {
             //Act & assert
-            IcaoCode icaoCode1 = new(icaoCodeString);
-            IcaoCode icaoCode2 = new(icaoCodeString);
+            IcaoCode icaoCode1 = new IcaoCode(icaoCodeString);
+            IcaoCode icaoCode2 = new IcaoCode(icaoCodeString);
 
             int icaoCode1HashCode = icaoCode1.GetHashCode();
             int icaoCode2HashCode = icaoCode2.GetHashCode();
@@ -85,7 +85,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void ToString_ShouldWorkAsExpected(string icaoCodeString)
         {
             //Arrange & act
-            IcaoCode icaoCode1 = new(icaoCodeString);
+            IcaoCode icaoCode1 = new IcaoCode(icaoCodeString);
 
             //Assert
             icaoCode1.ToString().Should().Contain(icaoCodeString);

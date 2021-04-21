@@ -39,7 +39,7 @@ namespace FSHFStandardLibrary.Implementations.Downloader.Specific
         {
             try
             {
-                using (HttpClient client = new())
+                using (HttpClient client = new HttpClient())
                 {
                     return client.GetAsync(url).Result;
                 }
@@ -79,12 +79,12 @@ namespace FSHFStandardLibrary.Implementations.Downloader.Specific
             return Task.Run(() =>
             {
                 BlockingCollection<DownloadResultWithIcaoCode<string>> downloadResults =
-                    new();
+                    new BlockingCollection<DownloadResultWithIcaoCode<string>>();
 
                 Parallel.ForEach(urlDownloadRequests, new ParallelOptions {MaxDegreeOfParallelism = 20},
                     request =>
                     {
-                        Stopwatch swStopwatch = new();
+                        Stopwatch swStopwatch = new Stopwatch();
                         swStopwatch.Start();
                         HttpResponseMessage response = getResponseByUrl(request.Url);
                         swStopwatch.Stop();

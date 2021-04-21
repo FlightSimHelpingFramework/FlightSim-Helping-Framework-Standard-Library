@@ -43,7 +43,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Checking.ArgumentChecking
         {
             //Arrange
             Action act = () =>
-                NullChecking.ThrowExceptionIfNullOrContainsNull(new List<object> {new(), new()},
+                NullChecking.ThrowExceptionIfNullOrContainsNull(new List<object> {new object(), new object()},
                     "Something");
 
             //Act & assert
@@ -55,7 +55,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Checking.ArgumentChecking
         {
             //Arrange
             Action act = () =>
-                NullChecking.ThrowExceptionIfNullOrContainsNull(new List<object> {new(), null},
+                NullChecking.ThrowExceptionIfNullOrContainsNull(new List<object> {new object(), null},
                     "Something interesting");
 
             //Act & assert

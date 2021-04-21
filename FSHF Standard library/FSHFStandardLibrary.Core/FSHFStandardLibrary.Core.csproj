@@ -12,6 +12,7 @@
         <PackageProjectUrl>https://github.com/FlightSimHelpingFramework/FlightSim-Helping-Framework-Standard-Library</PackageProjectUrl>
         <RepositoryUrl>https://github.com/FlightSimHelpingFramework/FlightSim-Helping-Framework-Standard-Library.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+        <LangVersion>9</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup>

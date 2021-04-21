@@ -23,10 +23,10 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.Specific
         public void Constructor_WithValidParameters_ShouldConstruct(Uri url)
         {
             //Arrange
-            IcaoCode expectedIcaoCode = new("UUEE");
+            IcaoCode expectedIcaoCode = new IcaoCode("UUEE");
 
             //Act
-            UrlDownloadRequestWithIcaoCode request = new(url, expectedIcaoCode);
+            UrlDownloadRequestWithIcaoCode request = new UrlDownloadRequestWithIcaoCode(url, expectedIcaoCode);
 
             //Assert
             request.Url.Should().Be(url);
@@ -37,8 +37,8 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.Specific
         public void ToString_WithValidParameters_ShouldReturnCorrectString(Uri url)
         {
             //Arrange & act
-            IcaoCode expectedIcaoCode = new("EDDF");
-            UrlDownloadRequestWithIcaoCode request = new(url, expectedIcaoCode);
+            IcaoCode expectedIcaoCode = new IcaoCode("EDDF");
+            UrlDownloadRequestWithIcaoCode request = new UrlDownloadRequestWithIcaoCode(url, expectedIcaoCode);
             string toStringRepresentation = request.ToString();
 
             //Assert

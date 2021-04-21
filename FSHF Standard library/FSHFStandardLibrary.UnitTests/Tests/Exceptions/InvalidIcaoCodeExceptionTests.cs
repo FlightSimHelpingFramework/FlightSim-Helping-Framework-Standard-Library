@@ -21,7 +21,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Exceptions
         public void Constuctor_WithValidMessage_ShouldConstruct(string message)
         {
             //Arrange & act
-            InvalidIcaoCodeException ex = new(message);
+            InvalidIcaoCodeException ex = new InvalidIcaoCodeException(message);
 
             //Assert
             ex.Message.Should().Be(message);
@@ -34,7 +34,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Exceptions
         {
             //Arrange & act
             InvalidIcaoCodeException ex =
-                new(message, null);
+                new InvalidIcaoCodeException(message, null);
 
             //Assert
             ex.InnerException.Should().BeNull();
@@ -44,7 +44,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Exceptions
         public void Constuctor_WithNullMessage_ShouldConstructWithDefaultMessage()
         {
             //Arrange & act
-            InvalidIcaoCodeException ex = new(null);
+            InvalidIcaoCodeException ex = new InvalidIcaoCodeException(null);
 
             //Assert
             ex.Message.Should().NotBeNull();
@@ -56,7 +56,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Exceptions
         {
             //Arrange & act
             InvalidIcaoCodeException ex =
-                new("Message", new InvalidIcaoCodeException(nameof(ex)));
+                new InvalidIcaoCodeException("Message", new InvalidIcaoCodeException(nameof(ex)));
 
             //Assert
             nameof(ex).Should().Be(ex.InnerException.Message);
@@ -66,7 +66,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Exceptions
         public void DefaultConstuctor_ShouldConstruct()
         {
             //Arrange & act
-            InvalidIcaoCodeException ex = new();
+            InvalidIcaoCodeException ex = new InvalidIcaoCodeException();
 
             //Assert
             ex.Should().NotBeNull();

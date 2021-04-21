@@ -35,7 +35,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.Specific
         {
             //Arrange & act
             DownloadResultWithIcaoCode<string> downloadResult =
-                new(downloadedData, downloadingTime, responseCode, icaoCode);
+                new DownloadResultWithIcaoCode<string>(downloadedData, downloadingTime, responseCode, icaoCode);
 
             //Assert
             downloadResult.DownloadedData.Should().Be(downloadedData);
@@ -49,7 +49,8 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.Specific
         {
             //Arrange
             Action act = () =>
-                new DownloadResultWithIcaoCode<string>("downloaded data", TimeSpan.Zero, HttpStatusCode.OK, null);
+                new DownloadResultWithIcaoCode<string>("downloaded data", TimeSpan.Zero,
+                    HttpStatusCode.OK, null);
 
             //Act & assert
             act.Should().ThrowExactly<ArgumentNullException>();
