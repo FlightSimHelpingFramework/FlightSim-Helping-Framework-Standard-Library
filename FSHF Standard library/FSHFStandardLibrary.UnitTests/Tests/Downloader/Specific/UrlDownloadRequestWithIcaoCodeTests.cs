@@ -49,7 +49,16 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.Specific
         public void Constructor_WithNullParameters_ShouldThrow_ArgumentNullException()
         {
             //Arrange
-            Action act = () => new UrlDownloadRequestWithIcaoCode(null, null);
+            Action act = () =>
+            {
+                // ReSharper disable once UnusedVariable, because we simply need creating an instance.
+                UrlDownloadRequestWithIcaoCode urlDownloadRequestWithIcaoCode =
+                    new UrlDownloadRequestWithIcaoCode(
+                        // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
+                        null,
+                        // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
+                        null);
+            };
 
             //Act & assert
             act.Should().ThrowExactly<ArgumentNullException>();

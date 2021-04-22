@@ -112,6 +112,7 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.General
             StandardUrlDownloader downloader = new StandardUrlDownloader();
 
             //Act & assert
+            // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
             Func<Task> act = async () => { await downloader.DownloadForManyRequestsAsync(null); };
 
             act.Should().ThrowAsync<ArgumentNullException>();

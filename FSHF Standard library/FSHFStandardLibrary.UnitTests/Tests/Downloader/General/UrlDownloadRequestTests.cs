@@ -43,7 +43,12 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.General
         public void Constructor_WithNullParameter_ShouldThrow_ArgumentNullException()
         {
             //Arrange
-            Action act = () => new UrlDownloadRequest(null);
+            Action act = () =>
+            {
+                // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
+                // ReSharper disable once UnusedVariable, because we simply need creating an instance.
+                UrlDownloadRequest urlDownloadRequest = new UrlDownloadRequest(null);
+            };
 
             //Act & assert
             act.Should().ThrowExactly<ArgumentNullException>();

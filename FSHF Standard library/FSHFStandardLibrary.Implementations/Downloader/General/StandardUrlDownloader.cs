@@ -16,6 +16,13 @@ using FSHFStandardLibrary.Implementations.Downloader.Specific;
 
 namespace FSHFStandardLibrary.Implementations.Downloader.General
 {
+    /// <summary>
+    ///     Standard implementation of downloader by <see cref="UrlDownloadRequest" />.
+    /// </summary>
+    /// <remarks>
+    ///     This class may be used in case there is a need to download some data (represented as a <see cref="string" /> as a
+    ///     result). (Without specifying ICAO code).
+    /// </remarks>
     public class StandardUrlDownloader : IDownloader<DownloadResult<string>,
         UrlDownloadRequest>
     {

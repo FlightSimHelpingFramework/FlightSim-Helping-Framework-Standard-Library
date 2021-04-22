@@ -23,7 +23,7 @@ namespace FSHFStandardLibrary.Core.Downloader.General
     /// <typeparam name="TDownloadRequestType">
     ///     Download request type.
     /// </typeparam>
-    public interface IDownloader<TDownloadResultType, TDownloadRequestType>
+    public interface IDownloader<TDownloadResultType, in TDownloadRequestType>
     {
         /// <summary>
         ///     Performs asynchronous downloading by requests at <paramref name="downloadRequests" />.
@@ -32,6 +32,7 @@ namespace FSHFStandardLibrary.Core.Downloader.General
         /// <returns>Task for performing downloading and getting <see cref="List{TDownloadResultType}" /> as a result.</returns>
         /// <exception cref="ArgumentNullException">If <paramref name="downloadRequests" /> is <c>null</c> or contains <c>null</c>.</exception>
         [NotNull]
+        [UsedImplicitly]
         Task<List<TDownloadResultType>> DownloadForManyRequestsAsync(
             [NotNull] IEnumerable<TDownloadRequestType> downloadRequests);
     }

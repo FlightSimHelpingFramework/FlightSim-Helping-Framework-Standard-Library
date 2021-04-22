@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 
 #endregion
@@ -39,13 +40,10 @@ namespace FSHFStandardLibrary.Core.Checking.ArgumentChecking
         private static void ThrowExceptionIfContainsInvalidString([NotNull] IEnumerable<string> collection,
             [NotNull] string collectionName)
         {
-            foreach (string item in collection)
+            if (collection.Any(item => !IsStringValid(item)))
             {
-                if (!IsStringValid(item))
-                {
-                    throw new ArgumentException("At least one element is null, empty or whitespace string",
-                        collectionName);
-                }
+                throw new ArgumentException("At least one element is null, empty or whitespace string",
+                    collectionName);
             }
         }
 

@@ -2,6 +2,12 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java: http://www.viva64.com
 // ------------------------------------------------------------------------------------------------------
 
+#region Usings
+
+using JetBrains.Annotations;
+
+#endregion
+
 namespace FSHFStandardLibrary.Core.Codes
 {
     /// <summary>
@@ -13,6 +19,7 @@ namespace FSHFStandardLibrary.Core.Codes
         /// <summary>
         ///     Airport ICAO code.
         /// </summary>
+        [UsedImplicitly]
         IcaoCode AirportIcaoCode { get; }
     }
 }

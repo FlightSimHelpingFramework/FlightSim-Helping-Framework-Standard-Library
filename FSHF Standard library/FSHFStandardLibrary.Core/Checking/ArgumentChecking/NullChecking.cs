@@ -40,19 +40,19 @@ namespace FSHFStandardLibrary.Core.Checking.ArgumentChecking
         ///     <c>null</c>.
         /// </summary>
         /// <param name="collection">Collection for checking.</param>
-        /// <param name="nameOfcollection">Collection name (for more informative exception throw).</param>
+        /// <param name="nameOfCollection">Collection name (for more informative exception throw).</param>
         /// <exception cref="ArgumentNullException">
         ///     If <paramref name="collection" /> is <c>null</c> or contains <c>null</c>.
         /// </exception>
         public static void ThrowExceptionIfNullOrContainsNull(
             [CanBeNull] IEnumerable<object> collection,
-            [NotNull] string nameOfcollection)
+            [NotNull] string nameOfCollection)
         {
-            ThrowExceptionIfNull(collection, nameOfcollection);
+            ThrowExceptionIfNull(collection, nameOfCollection);
             // ReSharper disable once PossibleNullReferenceException, because null-check has already been performed.
             foreach (object item in collection)
             {
-                ThrowExceptionIfNull(item, $"item in {nameOfcollection}");
+                ThrowExceptionIfNull(item, $"item in {nameOfCollection}");
             }
         }
     }

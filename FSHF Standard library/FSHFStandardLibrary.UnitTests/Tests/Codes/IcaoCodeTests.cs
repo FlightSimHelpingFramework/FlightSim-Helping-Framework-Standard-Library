@@ -23,7 +23,11 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void Constructor_WithInvalidParameters_ShouldThrow_InvalidIcaoCodeException(string icaoCodeString)
         {
             //Arrange
-            Action act = () => new IcaoCode(icaoCodeString);
+            Action act = () =>
+            {
+                // ReSharper disable once UnusedVariable, because we simply need creating an instance.
+                IcaoCode icaoCode = new IcaoCode(icaoCodeString);
+            };
 
             //Act & assert
             act.Should().ThrowExactly<InvalidIcaoCodeException>();
@@ -31,7 +35,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
 
         [Theory]
         [TestCaseSource(typeof(IcaoCodes), nameof(IcaoCodes.ValidStringIcaoCodesCollection))]
-        public void Constructor_WithValidParameters_ShouldCounstruct(string icaoCodeString)
+        public void Constructor_WithValidParameters_ShouldConstruct(string icaoCodeString)
         {
             //Arrange
             IcaoCode icaoCode = new IcaoCode(icaoCodeString);
@@ -59,6 +63,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
             //Arrange & act
             IcaoCode icaoCode1 = new IcaoCode(icaoCodeString);
             IcaoCode icaoCode2 = null;
+            // ReSharper disable once ExpressionIsAlwaysNull, because it is a test.
             bool result = icaoCode1.Equals(icaoCode2);
 
             //Assert

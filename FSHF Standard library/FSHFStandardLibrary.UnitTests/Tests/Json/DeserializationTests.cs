@@ -20,10 +20,21 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Json
 
     internal class SampleClassData
     {
-        public string icao { get; set; }
-        public string metar { get; set; }
-        public string name { get; set; }
-        public string taf { get; set; }
+        // ReSharper disable once InconsistentNaming
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
+        public string icao { get; init; }
+
+        // ReSharper disable once InconsistentNaming
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
+        public string metar { get; init; }
+
+        // ReSharper disable once InconsistentNaming
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
+        public string name { get; init; }
+
+        // ReSharper disable once InconsistentNaming
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
+        public string taf { get; init; }
     }
 
     #endregion
@@ -38,8 +49,10 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Json
             {
                 List<object[]> result = new List<object[]>();
 
+                // ReSharper disable once LoopCanBeConvertedToQuery
                 foreach (string icaoCode in IcaoCodes.ValidStringIcaoCodesCollection)
                 {
+                    // ReSharper disable once LoopCanBeConvertedToQuery
                     foreach (object validString in Strings.ValidStrings)
                     {
                         result.Add(new object[]
@@ -69,6 +82,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Json
         public void Deserialize_WithNullArgument_ShouldThrow_ArgumentNullException()
         {
             //Arrange
+            // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
             Action act = () => Deserialization.Deserialize<object>(null);
 
             //Act & assert
