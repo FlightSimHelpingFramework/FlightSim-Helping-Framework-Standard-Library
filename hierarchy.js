@@ -9,7 +9,8 @@ var hierarchy =
       [ "InvalidIcaoCodeException", "class_f_s_h_f_standard_library_1_1_core_1_1_exceptions_1_1_invalid_icao_code_exception.html", null ]
     ] ],
     [ "IcaoCodeChecking", "class_f_s_h_f_standard_library_1_1_core_1_1_checking_1_1_argument_checking_1_1_icao_code_checking.html", null ],
-    [ "IDownloader< TDownloadResultType, TDownloadRequestType >", "interface_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general_1_1_i_downloader.html", null ],
+    [ "IDeepCopyable< out out T >", "interface_f_s_h_f_standard_library_1_1_core_1_1_deep_copying_1_1_i_deep_copyable.html", null ],
+    [ "IDownloader< TDownloadResultType, in in TDownloadRequestType >", "interface_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general_1_1_i_downloader.html", null ],
     [ "IDownloader< DownloadResult< string >, UrlDownloadRequest >", "interface_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general_1_1_i_downloader.html", [
       [ "StandardUrlDownloader", "class_f_s_h_f_standard_library_1_1_implementations_1_1_downloader_1_1_general_1_1_standard_url_downloader.html", null ]
     ] ],

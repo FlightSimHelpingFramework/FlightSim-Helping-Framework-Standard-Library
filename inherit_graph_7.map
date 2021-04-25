@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$interface_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general_1_1_i_downloader.html" title="Interface of class, that can asynchronously download data of type TDownloadResultType &#160;by collection ..." alt="" coords="5,5,215,47"/>
+<area shape="rect" id="node1" href="$interface_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general_1_1_i_downloader.html" title=" " alt="" coords="5,5,244,61"/>
+<area shape="rect" id="node2" href="$class_f_s_h_f_standard_library_1_1_implementations_1_1_downloader_1_1_specific_1_1_standard_url_downloader_with_icao_code.html" title="Standard implementation of downloader by UrlDownloadRequestWithIcaoCode." alt="" coords="292,13,477,54"/>
 </map>

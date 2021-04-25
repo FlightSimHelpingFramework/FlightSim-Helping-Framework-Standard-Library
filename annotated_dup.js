@@ -14,6 +14,9 @@ var annotated_dup =
           [ "IcaoCode", "class_f_s_h_f_standard_library_1_1_core_1_1_codes_1_1_icao_code.html", "class_f_s_h_f_standard_library_1_1_core_1_1_codes_1_1_icao_code" ],
           [ "IIcaoCodeContainer", "interface_f_s_h_f_standard_library_1_1_core_1_1_codes_1_1_i_icao_code_container.html", "interface_f_s_h_f_standard_library_1_1_core_1_1_codes_1_1_i_icao_code_container" ]
         ] ],
+        [ "DeepCopying", "namespace_f_s_h_f_standard_library_1_1_core_1_1_deep_copying.html", [
+          [ "IDeepCopyable", "interface_f_s_h_f_standard_library_1_1_core_1_1_deep_copying_1_1_i_deep_copyable.html", "interface_f_s_h_f_standard_library_1_1_core_1_1_deep_copying_1_1_i_deep_copyable" ]
+        ] ],
         [ "Downloader", "namespace_f_s_h_f_standard_library_1_1_core_1_1_downloader.html", [
           [ "General", "namespace_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general.html", [
             [ "DownloadResult", "class_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general_1_1_download_result.html", "class_f_s_h_f_standard_library_1_1_core_1_1_downloader_1_1_general_1_1_download_result" ],

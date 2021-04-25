@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_f_s_h_f_standard_library_1_1_core_1_1_checking_1_1_argument_checking_1_1_null_checking.html" title="Static class for argument null&#45;checking." alt="" coords="5,5,104,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,84,32"/>
+<area shape="rect" id="node2" href="$class_f_s_h_f_standard_library_1_1_core_1_1_exceptions_1_1_invalid_icao_code_exception.html" title="Exception class for invalid ICAO code." alt="" coords="132,5,303,32"/>
 </map>
