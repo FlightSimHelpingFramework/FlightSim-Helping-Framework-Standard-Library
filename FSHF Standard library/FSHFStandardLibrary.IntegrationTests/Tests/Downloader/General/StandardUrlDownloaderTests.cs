@@ -88,7 +88,7 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.General
         }
 
         [Test]
-        public async Task DownloadForManyRequestsAsync_WithNotFoundResourseRequest_ShouldHave_NotFoundResponseCode()
+        public async Task DownloadForManyRequestsAsync_WithNotFoundResourceRequest_ShouldHave_NotFoundResponseCode()
         {
             //Arrange
             StandardUrlDownloader downloader = new StandardUrlDownloader();

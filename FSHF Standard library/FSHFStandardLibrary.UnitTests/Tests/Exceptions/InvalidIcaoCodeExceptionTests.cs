@@ -34,6 +34,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Exceptions
         {
             //Arrange & act
             InvalidIcaoCodeException ex =
+                // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
                 new InvalidIcaoCodeException(message, null);
 
             //Assert
