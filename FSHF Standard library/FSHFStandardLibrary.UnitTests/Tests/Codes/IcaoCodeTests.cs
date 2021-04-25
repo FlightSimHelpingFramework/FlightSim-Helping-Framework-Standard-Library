@@ -23,11 +23,8 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void Constructor_WithInvalidParameters_ShouldThrow_InvalidIcaoCodeException(string icaoCodeString)
         {
             //Arrange
-            Action act = () =>
-            {
-                // ReSharper disable once UnusedVariable, because we simply need creating an instance.
-                IcaoCode icaoCode = new IcaoCode(icaoCodeString);
-            };
+            // ReSharper disable once ObjectCreationAsStatement, because we simply need creating an instance.
+            Action act = () => { new IcaoCode(icaoCodeString); };
 
             //Act & assert
             act.Should().ThrowExactly<InvalidIcaoCodeException>();

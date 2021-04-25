@@ -50,8 +50,9 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.Specific
             //Arrange
             Action act = () =>
             {
-                // ReSharper disable once UnusedVariable, because we simply need creating an instance.
-                DownloadResultWithIcaoCode<string> downloadResultWithIcaoCode = new DownloadResultWithIcaoCode<string>(
+                // ReSharper disable once ObjectCreationAsStatement, because we simply need creating an instance.
+                // ReSharper disable once CA1806
+                new DownloadResultWithIcaoCode<string>(
                     "downloaded data", TimeSpan.Zero,
                     // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
                     HttpStatusCode.OK, null);

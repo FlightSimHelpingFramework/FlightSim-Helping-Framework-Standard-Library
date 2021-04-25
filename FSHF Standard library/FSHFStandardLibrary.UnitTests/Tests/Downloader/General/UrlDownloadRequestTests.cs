@@ -46,8 +46,9 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.General
             Action act = () =>
             {
                 // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
-                // ReSharper disable once UnusedVariable, because we simply need creating an instance.
-                UrlDownloadRequest urlDownloadRequest = new UrlDownloadRequest(null);
+                // ReSharper disable once ObjectCreationAsStatement, because we simply need creating an instance.
+                // ReSharper disable once CA1806
+                new UrlDownloadRequest(null);
             };
 
             //Act & assert
