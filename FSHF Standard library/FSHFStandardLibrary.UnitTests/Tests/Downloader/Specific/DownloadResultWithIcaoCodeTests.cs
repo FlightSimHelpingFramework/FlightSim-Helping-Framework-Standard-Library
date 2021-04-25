@@ -35,7 +35,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.Specific
         {
             //Arrange & act
             DownloadResultWithIcaoCode<string> downloadResult =
-                new(downloadedData, downloadingTime, responseCode, icaoCode);
+                new DownloadResultWithIcaoCode<string>(downloadedData, downloadingTime, responseCode, icaoCode);
 
             //Assert
             downloadResult.DownloadedData.Should().Be(downloadedData);
@@ -49,7 +49,14 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.Specific
         {
             //Arrange
             Action act = () =>
-                new DownloadResultWithIcaoCode<string>("downloaded data", TimeSpan.Zero, HttpStatusCode.OK, null);
+            {
+                // ReSharper disable once ObjectCreationAsStatement, because we simply need creating an instance.
+                // ReSharper disable once CA1806
+                new DownloadResultWithIcaoCode<string>(
+                    "downloaded data", TimeSpan.Zero,
+                    // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
+                    HttpStatusCode.OK, null);
+            };
 
             //Act & assert
             act.Should().ThrowExactly<ArgumentNullException>();

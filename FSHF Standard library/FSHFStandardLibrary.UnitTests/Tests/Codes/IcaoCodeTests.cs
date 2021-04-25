@@ -23,7 +23,8 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void Constructor_WithInvalidParameters_ShouldThrow_InvalidIcaoCodeException(string icaoCodeString)
         {
             //Arrange
-            Action act = () => new IcaoCode(icaoCodeString);
+            // ReSharper disable once ObjectCreationAsStatement, because we simply need creating an instance.
+            Action act = () => { new IcaoCode(icaoCodeString); };
 
             //Act & assert
             act.Should().ThrowExactly<InvalidIcaoCodeException>();
@@ -31,10 +32,10 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
 
         [Theory]
         [TestCaseSource(typeof(IcaoCodes), nameof(IcaoCodes.ValidStringIcaoCodesCollection))]
-        public void Constructor_WithValidParameters_ShouldCounstruct(string icaoCodeString)
+        public void Constructor_WithValidParameters_ShouldConstruct(string icaoCodeString)
         {
             //Arrange
-            IcaoCode icaoCode = new(icaoCodeString);
+            IcaoCode icaoCode = new IcaoCode(icaoCodeString);
 
             //Act & assert
             icaoCode.Code.Should().Be(icaoCodeString);
@@ -45,8 +46,8 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void Equals_WithEqualObjects_ShouldWorkAsExpected(string icaoCodeString)
         {
             //Arrange & act
-            IcaoCode icaoCode1 = new(icaoCodeString);
-            IcaoCode icaoCode2 = new(icaoCodeString);
+            IcaoCode icaoCode1 = new IcaoCode(icaoCodeString);
+            IcaoCode icaoCode2 = new IcaoCode(icaoCodeString);
 
             //Assert
             icaoCode1.Should().Be(icaoCode2);
@@ -57,8 +58,9 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void Equals_WithOneNullObject_ShouldWorkAsExpected(string icaoCodeString)
         {
             //Arrange & act
-            IcaoCode icaoCode1 = new(icaoCodeString);
+            IcaoCode icaoCode1 = new IcaoCode(icaoCodeString);
             IcaoCode icaoCode2 = null;
+            // ReSharper disable once ExpressionIsAlwaysNull, because it is a test.
             bool result = icaoCode1.Equals(icaoCode2);
 
             //Assert
@@ -70,8 +72,8 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void GetHashCode_WithEqualObjects_ShouldWorkAsExpected(string icaoCodeString)
         {
             //Act & assert
-            IcaoCode icaoCode1 = new(icaoCodeString);
-            IcaoCode icaoCode2 = new(icaoCodeString);
+            IcaoCode icaoCode1 = new IcaoCode(icaoCodeString);
+            IcaoCode icaoCode2 = new IcaoCode(icaoCodeString);
 
             int icaoCode1HashCode = icaoCode1.GetHashCode();
             int icaoCode2HashCode = icaoCode2.GetHashCode();
@@ -85,7 +87,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Codes
         public void ToString_ShouldWorkAsExpected(string icaoCodeString)
         {
             //Arrange & act
-            IcaoCode icaoCode1 = new(icaoCodeString);
+            IcaoCode icaoCode1 = new IcaoCode(icaoCodeString);
 
             //Assert
             icaoCode1.ToString().Should().Contain(icaoCodeString);

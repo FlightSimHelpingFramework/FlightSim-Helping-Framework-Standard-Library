@@ -34,7 +34,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.General
         {
             //Arrange & act
             DownloadResult<string> downloadResult =
-                new(downloadedData, downloadingTime, responseCode);
+                new DownloadResult<string>(downloadedData, downloadingTime, responseCode);
 
             //Assert
             downloadResult.DownloadedData.Should().Be(downloadedData);

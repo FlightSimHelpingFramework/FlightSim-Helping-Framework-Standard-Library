@@ -35,14 +35,12 @@ namespace FSHFStandardLibrary.Implementations.Downloader.Specific
         /// </summary>
         /// <param name="url">URL for downloading data.</param>
         /// <returns><see cref="HttpResponseMessage" /> from downloading data with URL .</returns>
-        private HttpResponseMessage getResponseByUrl(Uri url)
+        private static HttpResponseMessage GetResponseByUrl(Uri url)
         {
             try
             {
-                using (HttpClient client = new())
-                {
-                    return client.GetAsync(url).Result;
-                }
+                using HttpClient client = new HttpClient();
+                return client.GetAsync(url).Result;
             }
             catch
             {
@@ -79,14 +77,14 @@ namespace FSHFStandardLibrary.Implementations.Downloader.Specific
             return Task.Run(() =>
             {
                 BlockingCollection<DownloadResultWithIcaoCode<string>> downloadResults =
-                    new();
+                    new BlockingCollection<DownloadResultWithIcaoCode<string>>();
 
                 Parallel.ForEach(urlDownloadRequests, new ParallelOptions {MaxDegreeOfParallelism = 20},
                     request =>
                     {
-                        Stopwatch swStopwatch = new();
+                        Stopwatch swStopwatch = new Stopwatch();
                         swStopwatch.Start();
-                        HttpResponseMessage response = getResponseByUrl(request.Url);
+                        HttpResponseMessage response = GetResponseByUrl(request.Url);
                         swStopwatch.Stop();
                         if (response != null)
                         {

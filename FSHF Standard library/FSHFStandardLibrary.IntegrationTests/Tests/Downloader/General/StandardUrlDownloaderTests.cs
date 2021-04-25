@@ -28,8 +28,8 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.General
         public void DownloadForManyRequestsAsync_WithCollectionWithNullArgument_ShouldThrow_ArgumentNullException()
         {
             //Arrange
-            StandardUrlDownloader downloader = new();
-            List<UrlDownloadRequest> listOfRequests = new()
+            StandardUrlDownloader downloader = new StandardUrlDownloader();
+            List<UrlDownloadRequest> listOfRequests = new List<UrlDownloadRequest>
             {
                 null,
                 new UrlDownloadRequest(new Uri("https://www.g234525roogleeeeeeeeeeeeeeeeeeeeeee.com/"))
@@ -45,8 +45,8 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.General
         public async Task DownloadForManyRequestsAsync_WithInvalidDownloadRequest_ShouldReturn_EmptyList()
         {
             //Arrange
-            StandardUrlDownloader downloader = new();
-            List<UrlDownloadRequest> listOfRequests = new()
+            StandardUrlDownloader downloader = new StandardUrlDownloader();
+            List<UrlDownloadRequest> listOfRequests = new List<UrlDownloadRequest>
             {
                 new UrlDownloadRequest(new Uri("https://www.g234525roogleeeeeeeeeeeeeeeeeeeeeee.com/"))
             };
@@ -64,8 +64,8 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.General
             DownloadForManyRequestsAsync_WithMixedValidAndInvalidDownloadRequests_ShouldDownload_SomethingWithNotNullResult()
         {
             //Arrange
-            StandardUrlDownloader downloader = new();
-            List<UrlDownloadRequest> listOfRequests = new()
+            StandardUrlDownloader downloader = new StandardUrlDownloader();
+            List<UrlDownloadRequest> listOfRequests = new List<UrlDownloadRequest>
             {
                 new UrlDownloadRequest(new Uri("https://www.google.com/")),
                 new UrlDownloadRequest(new Uri("https://www.g23444kygk5eeeeeeeeeeeee.com/")),
@@ -88,11 +88,11 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.General
         }
 
         [Test]
-        public async Task DownloadForManyRequestsAsync_WithNotFoundResourseRequest_ShouldHave_NotFoundResponseCode()
+        public async Task DownloadForManyRequestsAsync_WithNotFoundResourceRequest_ShouldHave_NotFoundResponseCode()
         {
             //Arrange
-            StandardUrlDownloader downloader = new();
-            List<UrlDownloadRequest> listOfRequests = new()
+            StandardUrlDownloader downloader = new StandardUrlDownloader();
+            List<UrlDownloadRequest> listOfRequests = new List<UrlDownloadRequest>
             {
                 new UrlDownloadRequest(new Uri("https://www.google.com/qwer123_not_eXistS"))
             };
@@ -109,9 +109,10 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.General
         public void DownloadForManyRequestsAsync_WithNullArgument_ShouldThrow_ArgumentNullException()
         {
             //Arrange
-            StandardUrlDownloader downloader = new();
+            StandardUrlDownloader downloader = new StandardUrlDownloader();
 
             //Act & assert
+            // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
             Func<Task> act = async () => { await downloader.DownloadForManyRequestsAsync(null); };
 
             act.Should().ThrowAsync<ArgumentNullException>();

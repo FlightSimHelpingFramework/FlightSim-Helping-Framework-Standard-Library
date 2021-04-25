@@ -29,8 +29,8 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.Specific
         public void DownloadForManyRequestsAsync_WithCollectionWithNullArgument_ShouldThrow_ArgumentNullException()
         {
             //Arrange
-            StandardUrlDownloaderWithIcaoCode downloader = new();
-            List<UrlDownloadRequestWithIcaoCode> listOfRequests = new()
+            StandardUrlDownloaderWithIcaoCode downloader = new StandardUrlDownloaderWithIcaoCode();
+            List<UrlDownloadRequestWithIcaoCode> listOfRequests = new List<UrlDownloadRequestWithIcaoCode>
             {
                 null,
                 new UrlDownloadRequestWithIcaoCode(new Uri("https://www.g234525roogleeeeeeeeeeeeeeeeeeeeeee.com/"),
@@ -47,8 +47,8 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.Specific
         public async Task DownloadForManyRequestsAsync_WithInvalidDownloadRequest_ShouldReturn_EmptyList()
         {
             //Arrange
-            StandardUrlDownloaderWithIcaoCode downloader = new();
-            List<UrlDownloadRequestWithIcaoCode> listOfRequests = new()
+            StandardUrlDownloaderWithIcaoCode downloader = new StandardUrlDownloaderWithIcaoCode();
+            List<UrlDownloadRequestWithIcaoCode> listOfRequests = new List<UrlDownloadRequestWithIcaoCode>
             {
                 new UrlDownloadRequestWithIcaoCode(new Uri("https://www.g234525roogleeeeeeeeeeeeeeeeeeeeeee.com/"),
                     new IcaoCode("TEST"))
@@ -68,8 +68,8 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.Specific
             DownloadForManyRequestsAsync_WithMixedValidAndInvalidDownloadRequests_ShouldDownload_SomethingWithNotNullResult()
         {
             //Arrange
-            StandardUrlDownloaderWithIcaoCode downloader = new();
-            List<UrlDownloadRequestWithIcaoCode> listOfRequests = new()
+            StandardUrlDownloaderWithIcaoCode downloader = new StandardUrlDownloaderWithIcaoCode();
+            List<UrlDownloadRequestWithIcaoCode> listOfRequests = new List<UrlDownloadRequestWithIcaoCode>
             {
                 new UrlDownloadRequestWithIcaoCode(new Uri("https://www.google.com/"), new IcaoCode("TEST")),
                 new UrlDownloadRequestWithIcaoCode(new Uri("https://www.g23444kygk5eeeeeeeeeeeee.com/"),
@@ -97,11 +97,11 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.Specific
         }
 
         [Test]
-        public async Task DownloadForManyRequestsAsync_WithNotFoundResourseRequest_ShouldHave_NotFoundResponseCode()
+        public async Task DownloadForManyRequestsAsync_WithNotFoundResourceRequest_ShouldHave_NotFoundResponseCode()
         {
             //Arrange
-            StandardUrlDownloaderWithIcaoCode downloader = new();
-            List<UrlDownloadRequestWithIcaoCode> listOfRequests = new()
+            StandardUrlDownloaderWithIcaoCode downloader = new StandardUrlDownloaderWithIcaoCode();
+            List<UrlDownloadRequestWithIcaoCode> listOfRequests = new List<UrlDownloadRequestWithIcaoCode>
             {
                 new UrlDownloadRequestWithIcaoCode(new Uri("https://www.google.com/qwer123_not_eXistS"),
                     new IcaoCode("TEST"))
@@ -120,9 +120,10 @@ namespace FSHFStandardLibrary.IntegrationTests.Tests.Downloader.Specific
         public void DownloadForManyRequestsAsync_WithNullArgument_ShouldThrow_ArgumentNullException()
         {
             //Arrange
-            StandardUrlDownloaderWithIcaoCode downloader = new();
+            StandardUrlDownloaderWithIcaoCode downloader = new StandardUrlDownloaderWithIcaoCode();
 
             //Act & assert
+            // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
             Func<Task> act = async () => { await downloader.DownloadForManyRequestsAsync(null); };
 
             act.Should().ThrowAsync<ArgumentNullException>();

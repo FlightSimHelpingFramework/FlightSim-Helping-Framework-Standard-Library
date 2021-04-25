@@ -22,7 +22,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.General
         public void Constructor_WithValidParameters_ShouldConstruct(Uri url)
         {
             //Arrange & act
-            UrlDownloadRequest request = new(url);
+            UrlDownloadRequest request = new UrlDownloadRequest(url);
 
             //Assert
             request.Url.Should().Be(url);
@@ -32,7 +32,7 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.General
         public void ToString_WithValidParameters_ShouldReturnCorrectString(Uri url)
         {
             //Arrange & act
-            UrlDownloadRequest request = new(url);
+            UrlDownloadRequest request = new UrlDownloadRequest(url);
             string toStringRepresentation = request.ToString();
 
             //Assert
@@ -43,7 +43,13 @@ namespace FSHFStandardLibrary.UnitTests.Tests.Downloader.General
         public void Constructor_WithNullParameter_ShouldThrow_ArgumentNullException()
         {
             //Arrange
-            Action act = () => new UrlDownloadRequest(null);
+            Action act = () =>
+            {
+                // ReSharper disable once AssignNullToNotNullAttribute, because it is a test.
+                // ReSharper disable once ObjectCreationAsStatement, because we simply need creating an instance.
+                // ReSharper disable once CA1806
+                new UrlDownloadRequest(null);
+            };
 
             //Act & assert
             act.Should().ThrowExactly<ArgumentNullException>();

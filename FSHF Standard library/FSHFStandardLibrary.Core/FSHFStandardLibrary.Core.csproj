@@ -5,13 +5,14 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>FlightSim Helping Framework</Authors>
         <PackageLicenseUrl></PackageLicenseUrl>
-        <PackageVersion>0.0.4</PackageVersion>
+        <PackageVersion>0.0.5</PackageVersion>
         <Title>FlightSim Standard Library</Title>
         <Description>Flight Sim Standard Library</Description>
         <Copyright>2021</Copyright>
         <PackageProjectUrl>https://github.com/FlightSimHelpingFramework/FlightSim-Helping-Framework-Standard-Library</PackageProjectUrl>
         <RepositoryUrl>https://github.com/FlightSimHelpingFramework/FlightSim-Helping-Framework-Standard-Library.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+        <LangVersion>9</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup>
