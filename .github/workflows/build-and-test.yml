@@ -21,15 +21,15 @@ jobs:
         dotnet-version: 5.0.100
 
     - name: Install dependencies
-      working-directory: FSHF Standard Library
+      working-directory: FSHF Standard library
       run: dotnet restore
 
     - name: Build
-      working-directory: FSHF Standard Library
+      working-directory: FSHF Standard library
       run: dotnet build --configuration Release --no-restore
   
     - name: Unit tests
-      working-directory: FSHF Standard Library
+      working-directory: FSHF Standard library
       run: >
         dotnet test
         --filter Category=Unit
