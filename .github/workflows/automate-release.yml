@@ -1,0 +1,123 @@
+name: NuGet package release
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  buildAndTest:
+    name: Final building and testing on ubuntu-latest
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.100
+
+    - name: Install dependencies
+      working-directory: FSHF Standard library
+      run: dotnet restore
+
+    - name: Build
+      working-directory: FSHF Standard library
+      run: dotnet build --configuration Release --no-restore
+  
+    - name: Unit tests
+      working-directory: FSHF Standard library
+      run: >
+        dotnet test 
+        --filter Category=Unit 
+        --configuration Release --no-restore 
+        --verbosity normal --collect:"XPlat Code Coverage" 
+        --results-directory:"UnitTestResults"  
+        -- RunConfiguration.DisableAppDomain=true
+
+    - name: Integration tests with Internet data access tests
+      working-directory: FSHF Standard library
+      run: >
+        dotnet test --filter Category=IntegrationWithInternetDataAccess 
+        --configuration Release --no-restore 
+        --verbosity normal --collect:"XPlat Code Coverage" 
+        --results-directory:"IntegrationWithInternetDataAccessTestResults"  
+        -- RunConfiguration.DisableAppDomain=true
+
+    - name: Publish Codecov results for unit tests
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      uses: codecov/codecov-action@v1.3.2
+      with:
+        file: UnitTestResults/**/*.xml
+        env_vars: ubuntu-latest
+        name: Code Coverage for unit tests on ubuntu-latest
+        flags: UnitTests
+        verbose: false
+
+    - name: Codecov for integration tests with Internet data access
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      uses: codecov/codecov-action@v1.3.2
+      with:
+        file: IntegrationWithInternetDataAccessTestResults/**/*.xml
+        env_vars: ubuntu-latest
+        name: Code Coverage for integration tests with Internet data access on ubuntu-latest
+        flags: IntegrationTestsWithInternetDataAccess
+        verbose: false
+
+  createHtmlDocumentation:
+    needs: buildAndTest
+    name: Create documentation
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Generate Doxygen documentation
+      uses: mattnotmitt/doxygen-action@v1.1.0
+      
+    - name: Deploy to github pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        publish_dir: ./docs/html
+
+  publishNuGetPackage:
+    needs: [buildAndTest,createHtmlDocumentation]
+    name: Publish NuGet package
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.100
+
+    - name: Install dependencies
+      working-directory: FSHF Standard library
+      run: dotnet restore
+
+    - name: Build
+      working-directory: FSHF Standard library
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Create the package
+      working-directory: FSHF Standard library
+      run: dotnet pack --configuration Release
+
+    - name: Publish FSHFStandardLibrary.Core to NuGet. 
+      working-directory: FSHF Standard library
+      run: >
+        dotnet nuget push FSHFStandardLibrary.Core/bin/Release/*.nupkg 
+        --api-key ${{secrets.NUGET}} --source https://api.nuget.org/v3/index.json 
+        --skip-duplicate
+
+    - name: Publish FSHFStandardLibrary.Implementations to NuGet. 
+      working-directory: FSHF Standard library
+      run: >
+        dotnet nuget push FSHFStandardLibrary.Implementations/bin/Release/*.nupkg 
+        --api-key ${{secrets.NUGET}} --source https://api.nuget.org/v3/index.json 
+        --skip-duplicate
